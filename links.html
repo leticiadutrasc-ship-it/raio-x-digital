@@ -5,97 +5,168 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Letícia — Links</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background: #0b1120;
+    background: #000;
     color: #fff;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 48px;
   }
   .container {
-    max-width: 400px;
+    max-width: 580px;
     width: 100%;
-    padding: 48px 24px;
+    padding: 0 24px 48px;
     text-align: center;
   }
+
+  /* Avatar */
   .avatar {
-    width: 88px;
-    height: 88px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #f472b6, #60a5fa);
+    background: #111;
+    border: 2px solid #222;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    font-weight: 900;
+    font-size: 38px;
+    font-weight: 800;
     color: #fff;
     margin: 0 auto 16px;
-    box-shadow: 0 0 30px rgba(244, 114, 182, 0.3);
   }
+
+  /* Nome e bio */
   .name {
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 18px;
+    font-weight: 700;
     margin-bottom: 4px;
   }
-  .bio {
+  .handle {
     font-size: 13px;
-    color: #94a3b8;
-    line-height: 1.5;
-    margin-bottom: 32px;
+    color: #666;
+    margin-bottom: 6px;
   }
+  .bio {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom: 28px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Links */
   .links {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
   .link-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 16px 24px;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 700;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    position: relative;
   }
   .link-btn:hover {
-    transform: translateY(-2px);
+    background: #1a1a1a;
+    transform: scale(1.02);
   }
-  .link-raio {
-    background: linear-gradient(135deg, #f472b6, #ec4899);
+  .link-btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Icones */
+  .link-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-raio { background: #111; border: 1px solid #1a1a1a; }
+  .icon-wpp { background: #111; border: 1px solid #1a1a1a; }
+
+  .link-text {
+    flex: 1;
+    text-align: left;
+  }
+  .link-title {
+    font-size: 15px;
+    font-weight: 600;
     color: #fff;
-    box-shadow: 0 4px 20px rgba(244, 114, 182, 0.3);
   }
-  .link-raio:hover { box-shadow: 0 8px 28px rgba(244, 114, 182, 0.4); }
-  .link-wpp {
-    background: rgba(74, 222, 128, 0.1);
-    border: 1px solid rgba(74, 222, 128, 0.3);
-    color: #4ade80;
-  }
-  .link-wpp:hover { box-shadow: 0 8px 28px rgba(74, 222, 128, 0.2); }
-  .footer {
-    margin-top: 40px;
+  .link-sub {
     font-size: 11px;
-    color: #334155;
+    color: #666;
+    margin-top: 2px;
+  }
+  .link-arrow {
+    color: #333;
+    font-size: 14px;
+  }
+
+  .footer {
+    margin-top: 48px;
+    font-size: 11px;
+    color: #333;
+  }
+
+  @media (max-width: 480px) {
+    body { padding-top: 32px; }
+    .container { padding: 0 16px 32px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
+
   <div class="avatar">L</div>
   <div class="name">Letícia</div>
+  <div class="handle">@leticia</div>
   <div class="bio">Construa funcionários digitais que rodam seu negócio por você.</div>
+
   <div class="links">
-    <a href="https://leticiadutrasc-ship-it.github.io/raio-x-digital/" class="link-btn link-raio">Raio-X Digital — Análise Gratuita</a>
-    <a href="https://wa.me/5531987010961" class="link-btn link-wpp">WhatsApp</a>
+
+    <a href="https://leticiadutrasc-ship-it.github.io/raio-x-digital/" class="link-btn">
+      <div class="link-icon icon-raio">&#9889;</div>
+      <div class="link-text">
+        <div class="link-title">Raio-X Digital</div>
+        <div class="link-sub">Análise gratuita do seu negócio</div>
+      </div>
+      <div class="link-arrow">&#8250;</div>
+    </a>
+
+    <a href="https://wa.me/5531987010961" class="link-btn">
+      <div class="link-icon icon-wpp">&#128172;</div>
+      <div class="link-text">
+        <div class="link-title">WhatsApp</div>
+        <div class="link-sub">Fale diretamente comigo</div>
+      </div>
+      <div class="link-arrow">&#8250;</div>
+    </a>
+
   </div>
+
   <div class="footer">&copy; 2026 Letícia</div>
+
 </div>
 </body>
 </html>
