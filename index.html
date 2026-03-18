@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analise Gratuita — Funcionarios Digitais</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0b1120;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  /* === HERO === */
+  .hero {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(244, 114, 182, 0.12);
+    color: #f472b6;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 24px;
+    border: 1px solid rgba(244, 114, 182, 0.25);
+    margin-bottom: 24px;
+  }
+
+  .headline {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .headline span { color: #f472b6; }
+
+  .subheadline {
+    font-size: 17px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  /* === CTA BUTTON === */
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f472b6, #ec4899);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(244, 114, 182, 0.3);
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(244, 114, 182, 0.4);
+  }
+
+  .cta-sub {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 10px;
+  }
+
+  /* === DIVIDER === */
+  .divider {
+    max-width: 640px;
+    margin: 0 auto;
+    border-top: 1px solid #1e293b;
+  }
+
+  /* === SECTION === */
+  .section {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #f472b6;
+    margin-bottom: 20px;
+  }
+
+  /* === BENEFICIOS === */
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .benefit-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(244, 114, 182, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .benefit-text { font-size: 15px; line-height: 1.6; color: #cbd5e1; }
+  .benefit-text strong { color: #fff; }
+
+  /* === PRA QUEM === */
+  .check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #cbd5e1;
+  }
+  .check-yes {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(74, 222, 128, 0.12);
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .check-no {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(248, 113, 113, 0.12);
+    color: #f87171;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* === OBJECOES === */
+  .objections {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .objection {
+    background: #111827;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .objection-q {
+    font-size: 14px;
+    color: #94a3b8;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+  .objection-a {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* === AUTORIDADE === */
+  .auth-box {
+    background: #111827;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .auth-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #cbd5e1;
+  }
+  .auth-text strong { color: #fff; }
+
+  /* === CTA FINAL === */
+  .cta-final {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    text-align: center;
+  }
+  .cta-final-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: #334155;
+    border-top: 1px solid #1e293b;
+  }
+
+  /* === TIMELINE ANIMADA === */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .tl-item {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .tl-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tl-1.visible { transition-delay: 0.2s; }
+  .tl-2.visible { transition-delay: 0.6s; }
+  .tl-3.visible { transition-delay: 1.0s; }
+
+  .tl-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  .tl-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #0b1120;
+    border: 2px solid #2d3548;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #64748b;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+  }
+  .tl-item.visible .tl-dot {
+    border-color: #f472b6;
+    color: #f472b6;
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
+  }
+
+  .tl-bar {
+    width: 2px;
+    height: 40px;
+    background: #1e293b;
+    margin: 4px 0;
+    overflow: hidden;
+    border-radius: 1px;
+  }
+  .tl-bar-fill {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, #f472b6, #0b1120);
+    border-radius: 1px;
+    transition: height 0.8s ease;
+  }
+  .tl-item.visible .tl-bar-fill {
+    height: 100%;
+  }
+  .tl-fill-1 { transition-delay: 0.5s; }
+  .tl-fill-2 { transition-delay: 0.9s; }
+
+  .tl-content {
+    padding: 8px 0 32px;
+  }
+  .tl-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .tl-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #94a3b8;
+  }
+
+  /* === JORNADA ANIMADA v2 === */
+  .jornada { max-width: 520px; margin: 0 auto; }
+  .jn-cena {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .jn-cena.jn-visible { opacity: 1; transform: translateY(0); }
+
+  .jn-glass {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .jn-step-num {
+    font-size: 48px;
+    font-weight: 900;
+    opacity: 0.15;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    line-height: 1;
+  }
+  .jn-step-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .jn-caption {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 20px;
+    line-height: 1.5;
+  }
+
+  /* Conectores */
+  .jn-connector {
+    display: flex;
+    justify-content: center;
+    padding: 4px 0;
+  }
+  .jn-connector-line {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(180deg, rgba(244,114,182,0.4), rgba(244,114,182,0));
+  }
+
+  /* === Cena 1: Órbita caótica === */
+  .jn-orbit {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+  }
+  .jn-center-avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .jn-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    animation: jnPulse 2s ease-in-out infinite;
+  }
+  @keyframes jnPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  }
+  .jn-avatar-inner {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: #0b1120;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
+  .jn-orbit-item {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color);
+    background: rgba(248,113,113,0.08);
+    border: 1px solid rgba(248,113,113,0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    animation: jnOrbit 8s linear infinite;
+  }
+  .jn-orb-1 { top: 5%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+  .jn-orb-2 { top: 25%; right: 0%; animation-delay: -1.3s; }
+  .jn-orb-3 { bottom: 25%; right: 2%; animation-delay: -2.6s; }
+  .jn-orb-4 { bottom: 5%; left: 50%; transform: translateX(-50%); animation-delay: -3.9s; }
+  .jn-orb-5 { bottom: 25%; left: 0%; animation-delay: -5.2s; }
+  .jn-orb-6 { top: 25%; left: 0%; animation-delay: -6.5s; }
+  @keyframes jnOrbit {
+    0%, 100% { opacity: 0.5; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  /* === Cena 2: Radar === */
+  .jn-radar {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  .jn-radar-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(244,114,182,0.1);
+  }
+  .jn-ring-1 { width: 80px; height: 80px; }
+  .jn-ring-2 { width: 150px; height: 150px; }
+  .jn-ring-3 { width: 220px; height: 220px; }
+  .jn-radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    transform-origin: left center;
+    background: linear-gradient(90deg, #f472b6, transparent);
+    animation: jnSweep 3s linear infinite;
+  }
+  @keyframes jnSweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .jn-radar-dots { position: absolute; inset: 0; }
+  .jn-radar-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f472b6;
+    box-shadow: 0 0 12px rgba(244,114,182,0.6);
+    animation: jnBlink 2s ease-in-out infinite;
+  }
+  .jn-radar-dot span {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: #f472b6;
+    white-space: nowrap;
+  }
+  .jn-dot-1 { animation-delay: 0s; }
+  .jn-dot-2 { animation-delay: 0.5s; }
+  .jn-dot-3 { animation-delay: 1s; }
+  .jn-dot-4 { animation-delay: 1.5s; }
+  @keyframes jnBlink {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* === Cena 3: Network === */
+  .jn-network {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .jn-hub {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f472b6, #60a5fa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(244,114,182,0.3);
+  }
+  .jn-hub-inner {
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .jn-nodes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .jn-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .jn-cena.jn-visible .jn-node { opacity: 1; transform: translateY(0); }
+  .jn-cena.jn-visible .jn-node-1 { transition-delay: 0.2s; }
+  .jn-cena.jn-visible .jn-node-2 { transition-delay: 0.4s; }
+  .jn-cena.jn-visible .jn-node-3 { transition-delay: 0.6s; }
+  .jn-cena.jn-visible .jn-node-4 { transition-delay: 0.8s; }
+  .jn-cena.jn-visible .jn-node-5 { transition-delay: 1.0s; }
+  .jn-node-line {
+    width: 1px;
+    height: 16px;
+    background: linear-gradient(180deg, rgba(96,165,250,0.4), transparent);
+  }
+  .jn-node-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(96,165,250,0.08);
+    border: 1px solid rgba(96,165,250,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: box-shadow 0.3s;
+  }
+  .jn-node-circle:hover {
+    box-shadow: 0 0 20px rgba(96,165,250,0.3);
+  }
+  .jn-node-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+  }
+  .jn-network-tag {
+    font-size: 12px;
+    color: #f472b6;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* === Cena 4: Dashboard === */
+  .jn-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .jn-dash-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .jn-dash-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .jn-dash-big {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .jn-dash-label {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+  }
+  .jn-dash-bar-container { margin-top: 4px; }
+  .jn-dash-bar-track {
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .jn-dash-bar-fill-new {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    border-radius: 4px;
+    transition: width 2s ease;
+  }
+  .jn-cena.jn-visible .jn-dash-bar-fill-new { width: 80%; }
+  .jn-dash-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .jn-dash-icons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 4px;
+  }
+  .jn-dash-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+  .jn-dash-icon-item span { font-size: 28px; }
+
+  /* === TYPEFORM === */
+  .tf-step {
+    display: none;
+    animation: tfFadeIn 0.4s ease;
+  }
+  .tf-step.active { display: block; }
+  @keyframes tfFadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tf-label {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .tf-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #2d3548;
+    padding: 14px 0;
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.3s;
+  }
+  .tf-input:focus { border-color: #f472b6; }
+  .tf-input::placeholder { color: #475569; }
+
+  .tf-textarea {
+    width: 100%;
+    background: #111827;
+    border: 1px solid #2d3548;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    font-family: inherit;
+    min-height: 120px;
+    resize: vertical;
+    transition: border-color 0.3s;
+  }
+  .tf-textarea:focus { border-color: #f472b6; }
+  .tf-textarea::placeholder { color: #475569; }
+
+  .tf-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tf-option {
+    background: #111827;
+    border: 1px solid #2d3548;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tf-option:hover {
+    border-color: #f472b6;
+    background: #161b2e;
+  }
+  .tf-option.selected {
+    border-color: #f472b6;
+    background: rgba(244, 114, 182, 0.1);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .tf-scale {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  .tf-scale-item {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tf-scale-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #111827;
+    border: 2px solid #2d3548;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #64748b;
+    margin-bottom: 6px;
+    transition: all 0.2s;
+  }
+  .tf-scale-item:hover .tf-scale-num {
+    border-color: #f472b6;
+    color: #f472b6;
+  }
+  .tf-scale-item.selected .tf-scale-num {
+    background: #f472b6;
+    border-color: #f472b6;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+  }
+  .tf-scale-txt {
+    font-size: 11px;
+    color: #64748b;
+  }
+  .tf-scale-item.selected .tf-scale-txt { color: #f472b6; }
+
+  .tf-btn-next {
+    background: linear-gradient(135deg, #f472b6, #ec4899);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(244, 114, 182, 0.3);
+  }
+  .tf-btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(244, 114, 182, 0.4);
+  }
+  .tf-btn-back {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid #2d3548;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .tf-btn-back:hover { border-color: #475569; color: #94a3b8; }
+
+  @media (max-width: 480px) {
+    .headline { font-size: 26px; }
+    .hero { padding: 32px 16px 32px; }
+    .section { padding: 32px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="landing">
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size: 16px; color: #94a3b8; margin-bottom: 16px; line-height: 1.5;">Você trabalha mais do que deveria e fatura menos do que poderia?</div>
+  <div style="font-size: 40px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #f472b6; margin-bottom: 20px;">Raio-X Digital</div>
+
+  <p class="subheadline" style="font-size: 18px; color: #cbd5e1; line-height: 1.7;">
+    Em 30 minutos eu vou mapear os processos do seu negócio e te mostrar quais <strong style="color: #fff;">funcionários digitais</strong> colocar pra trabalhar pra você — acelerando sua receita com + lucro e - custo.
+  </p>
+
+  <a href="#" class="cta-btn" onclick="event.preventDefault(); document.getElementById('typeform').style.display='flex'; document.getElementById('landing').style.display='none';">Iniciar aplicação</a>
+  <div class="cta-sub">Gratuita &bull; Apenas 3 vagas por mês</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- JORNADA ANIMADA -->
+<div class="section" style="padding: 48px 24px;">
+  <div class="section-title" style="text-align: center;">Sua jornada</div>
+
+  <!-- CONTAINER JORNADA -->
+  <div class="jornada">
+
+    <!-- CENA 1: HOJE -->
+    <div class="jn-cena jn-1">
+      <div class="jn-glass">
+        <div class="jn-step-num" style="color: #f87171;">01</div>
+        <div class="jn-step-title">Hoje</div>
+        <div class="jn-orbit">
+          <div class="jn-center-avatar">
+            <div class="jn-pulse" style="background: rgba(248,113,113,0.2);"></div>
+            <div class="jn-avatar-inner" style="border-color: #f87171;">Você</div>
+          </div>
+          <div class="jn-orbit-item jn-orb-1" style="--color: #f87171;">Conteúdo</div>
+          <div class="jn-orbit-item jn-orb-2" style="--color: #f87171;">Vendas</div>
+          <div class="jn-orbit-item jn-orb-3" style="--color: #f87171;">Atendimento</div>
+          <div class="jn-orbit-item jn-orb-4" style="--color: #f87171;">Financeiro</div>
+          <div class="jn-orbit-item jn-orb-5" style="--color: #f87171;">Pesquisa</div>
+          <div class="jn-orbit-item jn-orb-6" style="--color: #f87171;">Organização</div>
+        </div>
+        <div class="jn-caption" style="color: #f87171;">Tudo depende de você. Tudo ao mesmo tempo.</div>
+        <div style="margin-top: 12px; font-size: 13px; color: #94a3b8; line-height: 1.6;">Conteúdo, vendas, atendimento, organização, financeiro, pesquisa — <strong style="color: #fff;">tudo nas suas costas</strong>. Você trabalha mais do que deveria e fatura menos do que poderia.</div>
+      </div>
+    </div>
+
+    <!-- CONECTOR -->
+    <div class="jn-connector"><div class="jn-connector-line"></div></div>
+
+    <!-- CENA 2: RAIO-X -->
+    <div class="jn-cena jn-2">
+      <div class="jn-glass">
+        <div class="jn-step-num" style="color: #f472b6;">02</div>
+        <div class="jn-step-title">Raio-X</div>
+        <div class="jn-radar">
+          <div class="jn-radar-ring jn-ring-1"></div>
+          <div class="jn-radar-ring jn-ring-2"></div>
+          <div class="jn-radar-ring jn-ring-3"></div>
+          <div class="jn-radar-sweep"></div>
+          <div class="jn-radar-dots">
+            <div class="jn-radar-dot jn-dot-1" style="top: 20%; left: 30%;"><span>3h/dia</span></div>
+            <div class="jn-radar-dot jn-dot-2" style="top: 45%; left: 70%;"><span>2h/dia</span></div>
+            <div class="jn-radar-dot jn-dot-3" style="top: 70%; left: 25%;"><span>1h/dia</span></div>
+            <div class="jn-radar-dot jn-dot-4" style="top: 30%; left: 65%;"><span>1h/dia</span></div>
+          </div>
+        </div>
+        <div class="jn-caption" style="color: #f472b6;">Cada processo mapeado. Cada gargalo identificado.</div>
+        <div style="margin-top: 12px; font-size: 13px; color: #94a3b8; line-height: 1.6;">Eu analiso seus objetivos e identifico onde você está <strong style="color: #f87171;">perdendo tempo e dinheiro</strong> com tarefas que <strong style="color: #fff;">não precisam de você</strong> para serem executadas.</div>
+      </div>
+    </div>
+
+    <!-- CONECTOR -->
+    <div class="jn-connector"><div class="jn-connector-line"></div></div>
+
+    <!-- CENA 3: SUA EQUIPE DIGITAL -->
+    <div class="jn-cena jn-3">
+      <div class="jn-glass">
+        <div class="jn-step-num" style="color: #60a5fa;">03</div>
+        <div class="jn-step-title">Sua Equipe Digital</div>
+        <div class="jn-network">
+          <div class="jn-hub">
+            <div class="jn-hub-inner">Você</div>
+          </div>
+          <div class="jn-nodes">
+            <div class="jn-node jn-node-1">
+              <div class="jn-node-line"></div>
+              <div class="jn-node-circle">
+                <div class="jn-node-icon">&#9997;&#65039;</div>
+              </div>
+              <div class="jn-node-label">Copy</div>
+            </div>
+            <div class="jn-node jn-node-2">
+              <div class="jn-node-line"></div>
+              <div class="jn-node-circle">
+                <div class="jn-node-icon">&#128221;</div>
+              </div>
+              <div class="jn-node-label">Conteúdo</div>
+            </div>
+            <div class="jn-node jn-node-3">
+              <div class="jn-node-line"></div>
+              <div class="jn-node-circle">
+                <div class="jn-node-icon">&#128270;</div>
+              </div>
+              <div class="jn-node-label">Pesquisa</div>
+            </div>
+            <div class="jn-node jn-node-4">
+              <div class="jn-node-line"></div>
+              <div class="jn-node-circle">
+                <div class="jn-node-icon">&#128172;</div>
+              </div>
+              <div class="jn-node-label">Atendimento</div>
+            </div>
+            <div class="jn-node jn-node-5">
+              <div class="jn-node-line"></div>
+              <div class="jn-node-circle">
+                <div class="jn-node-icon">&#128197;</div>
+              </div>
+              <div class="jn-node-label">Organização</div>
+            </div>
+          </div>
+          <div class="jn-network-tag">Sem código. Só conversando.</div>
+        </div>
+        <div class="jn-caption" style="color: #60a5fa;">Especialistas que trabalham pra você. 24 horas. Sem férias.</div>
+        <div style="margin-top: 12px; font-size: 13px; color: #94a3b8; line-height: 1.6;">Cada <strong style="color: #f472b6;">funcionário digital</strong> é especialista numa área do seu negócio. Você delega só conversando — <strong style="color: #fff;">sem código, sem programação</strong>.</div>
+      </div>
+    </div>
+
+    <!-- CONECTOR -->
+    <div class="jn-connector"><div class="jn-connector-line"></div></div>
+
+    <!-- CENA 4: O NEGOCIO NOVO -->
+    <div class="jn-cena jn-4">
+      <div class="jn-glass" style="border-color: rgba(74,222,128,0.2);">
+        <div class="jn-step-num" style="color: #4ade80;">04</div>
+        <div class="jn-step-title">O Negócio Novo</div>
+        <div class="jn-dashboard">
+          <div class="jn-dash-row">
+            <div class="jn-dash-card">
+              <div class="jn-dash-big jn-counter" data-target="80" style="color: #4ade80;">0%</div>
+              <div class="jn-dash-label">Automatizado</div>
+            </div>
+            <div class="jn-dash-card">
+              <div class="jn-dash-big" style="color: #f472b6;">Você</div>
+              <div class="jn-dash-label">Só grava, vende e cresce</div>
+            </div>
+          </div>
+          <div class="jn-dash-bar-container">
+            <div class="jn-dash-bar-track">
+              <div class="jn-dash-bar-fill-new"></div>
+            </div>
+            <div class="jn-dash-bar-labels">
+              <span style="color: #4ade80;">Funcionários digitais</span>
+              <span style="color: #f472b6;">Você</span>
+            </div>
+          </div>
+          <div class="jn-dash-icons">
+            <div class="jn-dash-icon-item"><span>&#127909;</span> Gravar</div>
+            <div class="jn-dash-icon-item"><span>&#128176;</span> Vender</div>
+            <div class="jn-dash-icon-item"><span>&#128640;</span> Crescer</div>
+          </div>
+        </div>
+        <div class="jn-caption" style="color: #4ade80;">Seu negócio rodando. Você vivendo.</div>
+        <div style="margin-top: 12px; font-size: 13px; color: #94a3b8; line-height: 1.6;">Você sai da call com o <strong style="color: #fff;">diagnóstico completo</strong>. A <strong style="color: #f472b6;">implementação</strong> é o próximo passo — <strong style="color: #4ade80;">eu faço por você</strong>.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="text-align: center; padding: 24px; font-size: 14px; color: #94a3b8; font-style: italic;">
+  Aqui não é sessão estratégica pra tentar te convencer de algo. É solução em 30 minutos.
+</div>
+
+<div class="divider"></div>
+
+<!-- GATILHO DE PERDA -->
+<div class="section" style="text-align: center;">
+  <p style="font-size: 16px; color: #f87171; line-height: 1.7; max-width: 480px; margin: 0 auto; font-weight: 600;">
+    Em 3 anos, quem não tiver IA no negócio vai trabalhar o dobro pra faturar metade. A janela pra sair na frente é agora.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <a href="#" class="cta-btn" onclick="event.preventDefault(); document.getElementById('typeform').style.display='flex'; document.getElementById('landing').style.display='none';">Iniciar aplicação</a>
+  <div class="cta-sub">Gratuita &bull; Online &bull; Sem compromisso</div>
+</div>
+
+<div class="footer">
+  &copy; 2026 Letícia. Todos os direitos reservados.
+</div>
+</div>
+
+<!-- ========== TYPEFORM ========== -->
+<div id="typeform" style="display: none; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;">
+  <div style="max-width: 560px; width: 100%; margin: 0 auto;">
+
+    <!-- PROGRESS BAR -->
+    <div style="margin-bottom: 32px;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <span id="tf-progress-text" style="font-size: 12px; color: #64748b;">Pergunta 1 de 9</span>
+        <span id="tf-progress-pct" style="font-size: 12px; color: #f472b6; font-weight: 700;">11%</span>
+      </div>
+      <div style="height: 4px; background: #1e293b; border-radius: 2px; overflow: hidden;">
+        <div id="tf-bar" style="height: 100%; width: 11%; background: linear-gradient(90deg, #f472b6, #ec4899); border-radius: 2px; transition: width 0.4s ease;"></div>
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div id="tf-steps">
+
+      <!-- STEP 1: Nome -->
+      <div class="tf-step active" data-step="1">
+        <div class="tf-label">Qual é o seu nome completo?</div>
+        <input type="text" class="tf-input" id="tf-nome" placeholder="Seu nome completo" autocomplete="name">
+      </div>
+
+      <!-- STEP 2: WhatsApp -->
+      <div class="tf-step" data-step="2">
+        <div class="tf-label">Qual o seu WhatsApp?</div>
+        <input type="tel" class="tf-input" id="tf-wpp" placeholder="(00) 00000-0000">
+      </div>
+
+      <!-- STEP 3: Email -->
+      <div class="tf-step" data-step="3">
+        <div class="tf-label">Qual o seu e-mail?</div>
+        <input type="email" class="tf-input" id="tf-email" placeholder="seu@email.com" autocomplete="email">
+      </div>
+
+      <!-- STEP 4: Instagram -->
+      <div class="tf-step" data-step="4">
+        <div class="tf-label">Qual o seu Instagram?</div>
+        <input type="text" class="tf-input" id="tf-instagram" placeholder="@seuusuario">
+      </div>
+
+      <!-- STEP 5: Segmento -->
+      <div class="tf-step" data-step="5">
+        <div class="tf-label">Qual o segmento do seu negócio?</div>
+        <div class="tf-options">
+          <div class="tf-option" onclick="selectOption(this)">Consultoria</div>
+          <div class="tf-option" onclick="selectOption(this)">Prestação de serviço</div>
+          <div class="tf-option" onclick="selectOption(this)">Agência</div>
+          <div class="tf-option" onclick="selectOption(this)">Infoproduto</div>
+          <div class="tf-option" onclick="selectOption(this)">Coach / Mentora</div>
+          <div class="tf-option" onclick="selectOption(this)">Social media / Freelancer</div>
+          <div class="tf-option" onclick="selectOption(this)">Saúde e bem-estar</div>
+          <div class="tf-option" onclick="selectOption(this)">Educação / Professora</div>
+          <div class="tf-option" onclick="selectOption(this)">E-commerce / Loja online</div>
+          <div class="tf-option" onclick="selectOption(this)">Outro</div>
+        </div>
+        <input type="text" class="tf-input tf-outro" id="tf-segmento-outro" placeholder="Qual?" style="display: none; margin-top: 12px;">
+      </div>
+
+      <!-- STEP 6: Faturamento -->
+      <div class="tf-step" data-step="6">
+        <div class="tf-label">Qual o faturamento mensal do seu negócio?</div>
+        <div class="tf-options">
+          <div class="tf-option" onclick="selectOption(this)">Ainda não faturo</div>
+          <div class="tf-option" onclick="selectOption(this)">Até R$3.000/mês</div>
+          <div class="tf-option" onclick="selectOption(this)">R$3.000 a R$10.000/mês</div>
+          <div class="tf-option" onclick="selectOption(this)">R$10.000 a R$30.000/mês</div>
+          <div class="tf-option" onclick="selectOption(this)">Acima de R$30.000/mês</div>
+        </div>
+      </div>
+
+      <!-- STEP 7: Equipe -->
+      <div class="tf-step" data-step="7">
+        <div class="tf-label">Quantas pessoas tem na sua equipe?</div>
+        <div class="tf-options">
+          <div class="tf-option" onclick="selectOption(this)">Só eu (solo)</div>
+          <div class="tf-option" onclick="selectOption(this)">2 a 3 pessoas</div>
+          <div class="tf-option" onclick="selectOption(this)">4 a 10 pessoas</div>
+          <div class="tf-option" onclick="selectOption(this)">Mais de 10 pessoas</div>
+        </div>
+      </div>
+
+      <!-- STEP 8: Gargalo -->
+      <div class="tf-step" data-step="8">
+        <div class="tf-label">Onde é o maior gargalo do seu negócio?</div>
+        <div class="tf-options">
+          <div class="tf-option" onclick="selectOption(this)">Produção de conteúdo</div>
+          <div class="tf-option" onclick="selectOption(this)">Leads desqualificados</div>
+          <div class="tf-option" onclick="selectOption(this)">Custo alto em operação/equipe</div>
+          <div class="tf-option" onclick="selectOption(this)">Baixo volume de vendas</div>
+          <div class="tf-option" onclick="selectOption(this)">Processos manuais/operacionais</div>
+          <div class="tf-option" onclick="selectOption(this)">Comercial/suporte sobrecarregado</div>
+          <div class="tf-option" onclick="selectOption(this)">Outro</div>
+        </div>
+        <input type="text" class="tf-input tf-outro" id="tf-gargalo-outro" placeholder="Qual?" style="display: none; margin-top: 12px;">
+      </div>
+
+      <!-- STEP 9: Uso de IA -->
+      <div class="tf-step" data-step="9">
+        <div class="tf-label">Como você usa IA hoje?</div>
+        <div class="tf-options">
+          <div class="tf-option" onclick="selectOption(this)">Não uso nada</div>
+          <div class="tf-option" onclick="selectOption(this)">Uso ChatGPT de vez em quando</div>
+          <div class="tf-option" onclick="selectOption(this)">Uso IA no dia a dia mas sem sistema</div>
+          <div class="tf-option" onclick="selectOption(this)">Já tenho processos com IA rodando</div>
+        </div>
+        <input type="text" class="tf-input tf-outro-ia" id="tf-ia-outro" placeholder="Quais processos você já usa com IA?" style="display: none; margin-top: 12px;">
+      </div>
+
+      <!-- STEP 10: Escala de tempo -->
+      <div class="tf-step" data-step="10">
+        <div class="tf-label">De 1 a 5, quanto tempo você gasta com tarefas que não deveriam passar por você?</div>
+        <div class="tf-scale">
+          <div class="tf-scale-item" onclick="selectScale(this, 1)">
+            <div class="tf-scale-num">1</div>
+            <div class="tf-scale-txt">Quase nada</div>
+          </div>
+          <div class="tf-scale-item" onclick="selectScale(this, 2)">
+            <div class="tf-scale-num">2</div>
+            <div class="tf-scale-txt">Pouco</div>
+          </div>
+          <div class="tf-scale-item" onclick="selectScale(this, 3)">
+            <div class="tf-scale-num">3</div>
+            <div class="tf-scale-txt">Moderado</div>
+          </div>
+          <div class="tf-scale-item" onclick="selectScale(this, 4)">
+            <div class="tf-scale-num">4</div>
+            <div class="tf-scale-txt">Muito</div>
+          </div>
+          <div class="tf-scale-item" onclick="selectScale(this, 5)">
+            <div class="tf-scale-num">5</div>
+            <div class="tf-scale-txt">Demais</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NAV BUTTONS -->
+    <div id="tf-nav" style="display: flex; justify-content: space-between; margin-top: 32px;">
+      <button id="tf-back" class="tf-btn-back" onclick="tfBack()" style="visibility: hidden;">&#8592; Voltar</button>
+      <button id="tf-next" class="tf-btn-next" onclick="tfNext()">Próxima &#8594;</button>
+    </div>
+
+    <!-- TELA FINAL (escondida) -->
+    <div id="tf-done" style="display: none; text-align: center; padding: 60px 0;">
+      <div style="font-size: 48px; margin-bottom: 16px;">&#10003;</div>
+      <div style="font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 12px;">Aplicação enviada!</div>
+      <div style="font-size: 15px; color: #94a3b8; line-height: 1.7; max-width: 400px; margin: 0 auto;">
+        Eu vou analisar suas respostas e entrar em contato pelo WhatsApp em até 48 horas.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ===== TIMELINE ANIMATION =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.tl-item').forEach(item => observer.observe(item));
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.tl-item').forEach(item => {
+      if (item.getBoundingClientRect().top < window.innerHeight) item.classList.add('visible');
+    });
+  }, 500);
+});
+
+// ===== JORNADA ANIMATION =====
+const jnObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('jn-visible');
+      // Counter animation for cena 4
+      const counter = entry.target.querySelector('.jn-counter');
+      if (counter && !counter.dataset.counted) {
+        counter.dataset.counted = 'true';
+        let val = 0;
+        const target = 80;
+        const interval = setInterval(() => {
+          val += 2;
+          counter.textContent = val + '%';
+          if (val >= target) clearInterval(interval);
+        }, 30);
+      }
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.jn-cena').forEach(c => jnObserver.observe(c));
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.jn-cena').forEach(c => {
+      if (c.getBoundingClientRect().top < window.innerHeight) {
+        c.classList.add('jn-visible');
+        const counter = c.querySelector('.jn-counter');
+        if (counter && !counter.dataset.counted) {
+          counter.dataset.counted = 'true';
+          let val = 0;
+          const interval = setInterval(() => {
+            val += 2;
+            counter.textContent = val + '%';
+            if (val >= 80) clearInterval(interval);
+          }, 30);
+        }
+      }
+    });
+  }, 800);
+});
+
+// ===== TYPEFORM ENGINE =====
+let current = 1;
+const total = 10;
+const answers = {};
+
+function updateProgress() {
+  const pct = Math.round((current / total) * 100);
+  document.getElementById('tf-progress-text').textContent = `Pergunta ${current} de ${total}`;
+  document.getElementById('tf-progress-pct').textContent = `${pct}%`;
+  document.getElementById('tf-bar').style.width = `${pct}%`;
+}
+
+function showStep(n) {
+  document.querySelectorAll('.tf-step').forEach(s => s.classList.remove('active'));
+  const step = document.querySelector(`.tf-step[data-step="${n}"]`);
+  if (step) {
+    step.classList.add('active');
+    const input = step.querySelector('input, textarea');
+    if (input) setTimeout(() => input.focus(), 300);
+  }
+  document.getElementById('tf-back').style.visibility = n === 1 ? 'hidden' : 'visible';
+  document.getElementById('tf-next').textContent = n === total ? 'Enviar aplicação' : 'Próxima →';
+  updateProgress();
+}
+
+function selectOption(el) {
+  const parent = el.closest('.tf-step');
+  parent.querySelectorAll('.tf-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  // Show "outro" input if needed
+  if (el.textContent === 'Outro') {
+    const outro = parent.querySelector('.tf-outro');
+    if (outro) { outro.style.display = 'block'; outro.focus(); }
+  } else {
+    const outro = parent.querySelector('.tf-outro');
+    if (outro) outro.style.display = 'none';
+  }
+  // Show IA detail input
+  if (el.textContent === 'Já tenho processos com IA rodando') {
+    const iaOutro = parent.querySelector('.tf-outro-ia');
+    if (iaOutro) { iaOutro.style.display = 'block'; iaOutro.focus(); }
+  } else {
+    const iaOutro = parent.querySelector('.tf-outro-ia');
+    if (iaOutro) iaOutro.style.display = 'none';
+  }
+}
+
+function selectScale(el, val) {
+  el.closest('.tf-scale').querySelectorAll('.tf-scale-item').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  answers['escala_tempo'] = val;
+}
+
+function saveCurrentAnswer() {
+  const step = document.querySelector(`.tf-step[data-step="${current}"]`);
+  const input = step.querySelector('input, textarea');
+  const selected = step.querySelector('.tf-option.selected');
+  if (input && input.value) answers[`step_${current}`] = input.value;
+  if (selected) {
+    answers[`step_${current}`] = selected.textContent;
+    const outro = step.querySelector('.tf-outro');
+    if (outro && outro.style.display !== 'none' && outro.value) {
+      answers[`step_${current}`] = outro.value;
+    }
+  }
+}
+
+function tfNext() {
+  saveCurrentAnswer();
+  // Validacao obrigatoria (nome, wpp, email)
+  if (current === 1 && !document.getElementById('tf-nome').value.trim()) {
+    document.getElementById('tf-nome').style.borderColor = '#f87171';
+    document.getElementById('tf-nome').setAttribute('placeholder', 'Por favor, preencha seu nome');
+    document.getElementById('tf-nome').focus();
+    return;
+  }
+  if (current === 2) {
+    const wpp = document.getElementById('tf-wpp').value.replace(/\D/g, '');
+    if (wpp.length < 10 || wpp.length > 11) {
+      document.getElementById('tf-wpp').style.borderColor = '#f87171';
+      document.getElementById('tf-wpp').setAttribute('placeholder', 'Digite um número válido: (00) 00000-0000');
+      document.getElementById('tf-wpp').value = '';
+      document.getElementById('tf-wpp').focus();
+      return;
+    }
+  }
+  if (current === 3) {
+    const email = document.getElementById('tf-email').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById('tf-email').style.borderColor = '#f87171';
+      document.getElementById('tf-email').setAttribute('placeholder', 'Digite um e-mail válido: seu@email.com');
+      document.getElementById('tf-email').value = '';
+      document.getElementById('tf-email').focus();
+      return;
+    }
+  }
+  if (current === 4 && !document.getElementById('tf-instagram').value.trim()) {
+    document.getElementById('tf-instagram').style.borderColor = '#f87171';
+    document.getElementById('tf-instagram').setAttribute('placeholder', 'Por favor, preencha seu Instagram');
+    document.getElementById('tf-instagram').focus();
+    return;
+  }
+  if (current < total) {
+    current++;
+    showStep(current);
+  } else {
+    // ENVIAR pro Google Sheets
+    const payload = {
+      nome: answers['step_1'] || '',
+      wpp: answers['step_2'] || '',
+      email: answers['step_3'] || '',
+      instagram: answers['step_4'] || '',
+      segmento: answers['step_5'] || '',
+      faturamento: answers['step_6'] || '',
+      equipe: answers['step_7'] || '',
+      gargalo: answers['step_8'] || '',
+      uso_ia: answers['step_9'] || '',
+      escala_tempo: answers['escala_tempo'] || ''
+    };
+
+    const params = new URLSearchParams(payload).toString();
+    const img = new Image();
+    img.src = 'https://script.google.com/macros/s/AKfycbwM1zfb5eZnb2tYu8lLAS17dR6FHNlxDGwgGKjrKvc4M3DyG1jejIRM7ylAvf7Lx9jJ/exec?' + params;
+
+    // Mostra tela final
+    document.getElementById('tf-steps').style.display = 'none';
+    document.getElementById('tf-nav').style.display = 'none';
+    document.querySelector('#typeform > div > div:first-child').style.display = 'none';
+    document.getElementById('tf-done').style.display = 'block';
+  }
+}
+
+function tfBack() {
+  if (current > 1) {
+    current--;
+    showStep(current);
+  }
+}
+
+// Enter = proxima
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && document.getElementById('typeform').style.display === 'flex') {
+    e.preventDefault();
+    tfNext();
+  }
+});
+</script>
+</body>
+</html>
